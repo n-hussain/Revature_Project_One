@@ -25,7 +25,7 @@ class Book:
         if not self.available:
             raise Exception('Book is already checked out.')
         self.available = False
-    
+
     def check_in(self):
         if self.available:
             raise Exception('Book is already available.')

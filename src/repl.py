@@ -1,7 +1,7 @@
 from src.services import generate_books
-from domain.book import Book
-from services.book_service import BookService
-from repositories.book_repository import BookRepository
+from src.domain.book import Book
+from src.services.book_service import BookService
+from src.repositories.book_repository import BookRepository
 import requests
 
 class BookREPL:
