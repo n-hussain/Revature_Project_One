@@ -1,13 +1,15 @@
 from src.services import generate_books
 from src.domain.book import Book
 from src.services.book_service import BookService
+from src.services.book_analytics_service import BookAnalyticsService
 from src.repositories.book_repository import BookRepository
 import requests
 
 class BookREPL:
-    def __init__(self, book_svc):
+    def __init__(self, book_svc, book_analytics_svc):
         self.running = True
         self.book_svc = book_svc
+        self.book_analytics_svc = book_analytics_svc
 
     def start(self):
         print('Welcome to the book app! Type \'Help\' for a list of commands!')
@@ -27,10 +29,31 @@ class BookREPL:
             self.find_book_by_name()
         elif cmd == 'getJoke':
             self.get_joke()
+        elif cmd == 'getAveragePrice':
+            self.get_average_price()
+        elif cmd == 'getTopBooks':
+            self.get_top_books()
+        elif cmd == 'getValueScores':
+            self.get_value_scores()
         elif cmd == 'help':
-            print('Available commands: addBook, getAllRecords, findByName, getJoke, help, exit')
+            print('Available commands: addBook, getAllRecords, findByName, getJoke, getAveragePrice, getTopBooks, getValueScores, help, exit')
         else:
             print('Please use a valid command!')
+
+    def get_average_price(self):
+        books = self.book_svc.get_all_books()
+        avg_price = self.book_analytics_svc.average_price(books)
+        print(avg_price)
+
+    def get_top_books(self):
+        books = self.book_svc.get_all_books()
+        top_rated_books = self.book_analytics_svc.top_rated(books)
+        print(top_rated_books)
+
+    def get_value_scores(self):
+        books = self.book_svc.get_all_books()
+        value_scores = self.book_analytics_svc.value_scores(books)
+        print(value_scores)
 
     def get_joke(self):
         try:
@@ -69,5 +92,6 @@ if __name__ == '__main__':
     generate_books()
     repo = BookRepository('books.json')
     book_service = BookService(repo)
-    repl = BookREPL(book_service)
+    book_analytics_service = BookAnalyticsService()
+    repl = BookREPL(book_service, book_analytics_service)
     repl.start()
