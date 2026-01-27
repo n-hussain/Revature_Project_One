@@ -10,3 +10,9 @@ class BookRepositoryProtocol(Protocol):
 
     def find_book_by_name(self, query:str) -> list[Book]:
         ...
+    
+    def update_book(self, updated_book: Book) -> bool:
+        ...
+
+    def delete_book(self, book_id: str) -> bool:
+        ...

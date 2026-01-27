@@ -3,9 +3,9 @@ name = "my-python-solid-app"
 version = "0.1.0"
 description = "This is my SOLID python app!"
 authors = [
-    {name = "Ethan Wilson",email = "ethanwilson1991@gmail.com"}
+    {name = "Nurul Hussain",email = "hussainnnurul12@gmail.com"}
 ]
-requires-python = ">=3.14"
+requires-python = ">=3.13"
 dependencies = [
     "jupyter (>=1.1.1,<2.0.0)",
     "ipykernel (>=7.1.0,<8.0.0)",
