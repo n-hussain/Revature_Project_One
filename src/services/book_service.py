@@ -10,6 +10,12 @@ class BookService:
 
     def add_book(self, book:Book) -> str:
         return self.repo.add_book(book)
+    
+    def delete_book(self, book:Book) -> str:
+        return self.repo.delete_book(book)
+    
+    def update_book(self, book:Book) -> bool:
+        return self.repo.update_book(book)
 
     def find_book_by_name(self, query:str) -> list[Book]:
         if not isinstance(query, str):

@@ -17,3 +17,19 @@ def test_find_book_name_negative():
     with pytest.raises(TypeError) as e:
         book = svc.find_book_by_name(name)
     assert str(e.value) == 'Expected str, got something else.'
+
+def test_delete_book_positive():
+    repo = MockBookRepo()
+    svc = book_service.BookService(repo)
+
+    book = svc.get_all_books()[0]
+    result = svc.delete_book(book)
+
+    assert result is True
+
+def test_update_book_positive():
+    repo = MockBookRepo()
+    svc = book_service.BookService(repo)
+    book = svc.get_all_books()[0]
+    result = svc.update_book(book)
+    assert result is True
