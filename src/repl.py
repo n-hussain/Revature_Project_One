@@ -1,4 +1,5 @@
 from src.services import generate_books
+from src.services.book_generator_bad_data_service import generate_books as get_bad_books
 from src.domain.book import Book
 from src.services.book_service import BookService
 from src.repositories.book_repository import BookRepository
@@ -52,7 +53,22 @@ class BookREPL:
                 " exit"
             )
         else:
-            print("Please use a valid command!")
+            print('Please use a valid command!')
+
+    def get_average_price(self):
+        books = self.book_svc.get_all_books()
+        avg_price = self.book_analytics_svc.average_price(books)
+        print(avg_price)
+
+    def get_top_books(self):
+        books = self.book_svc.get_all_books()
+        top_rated_books = self.book_analytics_svc.top_rated_with_pandas(books)
+        print(top_rated_books)
+
+    def get_value_scores(self):
+        books = self.book_svc.get_all_books()
+        value_scores = self.book_analytics_svc.value_scores_with_pandas(books)
+        print(value_scores)
 
     def get_joke(self):
         try:
@@ -166,7 +182,8 @@ class BookREPL:
 
 if __name__ == "__main__":
     generate_books()
-    repo = BookRepository("books.json")
+    get_bad_books()
+    repo = BookRepository('books.json')
     book_service = BookService(repo)
     repl = BookREPL(book_service)
     repl.start()
