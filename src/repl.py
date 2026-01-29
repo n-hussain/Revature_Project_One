@@ -69,7 +69,6 @@ class BookREPL:
         else:
             print("Please use a valid command!")
 
-    # ---------------- Analytics commands ----------------
     def get_average_price(self):
         if self.book_analytics_svc:
             books = self.book_svc.get_all_books()
@@ -88,7 +87,6 @@ class BookREPL:
             value_scores = self.book_analytics_svc.value_scores(books)
             print(value_scores)
 
-    # ---------------- Fun commands ----------------
     def get_joke(self):
         try:
             url = "https://api.chucknorris.io/jokes/random"
@@ -102,7 +100,6 @@ class BookREPL:
         except requests.exceptions.RequestException as e:
             print(f"Something else went wrong: {e}")
 
-    # ---------------- CRUD commands ----------------
     def get_all_records(self):
         books = self.book_svc.get_all_books()
         for book in books:
@@ -200,7 +197,6 @@ class BookREPL:
             print("Update failed.")
 
 
-# ---------------- Entry point ----------------
 if __name__ == "__main__":
     generate_books()
     get_bad_books()

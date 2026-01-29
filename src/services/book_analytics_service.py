@@ -82,7 +82,13 @@ class BookAnalyticsService:
 
         return result
 
-    def median_genre_current_year(self, books: list[Book]) -> str
+    def median_genre_current_year(self, books: list[Book]) -> str:
         current_year = 2026
-        genres = np.array([b.genre for b in books if datetime.fromisoformat(b.last_checkout).year == current_year])
-        return genres.mode()[0]
+
+        genres = [b.genre for b in books if datetime.datetime.fromisoformat(b.last_checkout).year == current_year]
+
+        if not genres:
+            return "" 
+
+        values, counts = np.unique(genres, return_counts=True)
+        return values[np.argmax(counts)]
