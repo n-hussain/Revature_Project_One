@@ -19,6 +19,7 @@ class Book:
     sales_millions: Optional[float] = None
     last_checkout: Optional[str] = None
     available: Optional[bool] = None
+    publisher_email: Optional[str] = None
     book_id: str = field(default_factory=lambda: str(uuid.uuid4()))
 
     def check_out(self):
@@ -52,5 +53,6 @@ class Book:
             "in_print": self.in_print,
             "sales_millions": self.sales_millions,
             "last_checkout": self.last_checkout,
-            "available": self.available
+            "available": self.available,
+            "publisher_email": self.publisher_email,
         }
