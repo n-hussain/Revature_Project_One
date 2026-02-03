@@ -11,8 +11,8 @@ class BookService:
     def add_book(self, book:Book) -> str:
         return self.repo.add_book(book)
     
-    def delete_book(self, book:Book) -> str:
-        return self.repo.delete_book(book)
+    def delete_book(self, book_id:str) -> str:
+        return self.repo.delete_book(book_id)
     
     def update_book(self, book:Book) -> bool:
         return self.repo.update_book(book)

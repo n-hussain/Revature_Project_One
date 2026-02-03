@@ -10,7 +10,7 @@ class Book:
     publication_year: Optional[int] = None
     page_count: Optional[int] = None
     average_rating: Optional[float] = None
-    ratings_count: Optional[int] = None
+    ratings_count: Optional[int] = 0
     price_usd: Optional[float] = None
     publisher: Optional[str] = None
     language: Optional[str] = None
@@ -18,7 +18,7 @@ class Book:
     in_print: Optional[bool] = None
     sales_millions: Optional[float] = None
     last_checkout: Optional[str] = None
-    available: Optional[bool] = None
+    available: Optional[bool] = True
     publisher_email: Optional[str] = None
     book_id: str = field(default_factory=lambda: str(uuid.uuid4()))
 

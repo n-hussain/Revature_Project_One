@@ -1,13 +1,9 @@
 from dataclasses import dataclass
 from datetime import datetime
-from enum import Enum
-
-class CheckoutAction(Enum):
-    CHECK_OUT = "check_out"
-    CHECK_IN = "check_in"
 
 @dataclass(frozen=True)
 class CheckoutEvent:
     book_id: str
-    action: CheckoutAction
-    timestamp: datetime
+    checked_out_at: datetime
+    returned_at: datetime | None = None
+    returned: bool = False

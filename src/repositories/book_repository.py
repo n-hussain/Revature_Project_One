@@ -18,7 +18,7 @@ class BookRepository(BookRepositoryProtocol):
             json.dump([b.to_dict() for b in books], f, indent=2)
         return book.book_id
 
-    def find_book_by_name(self, query) -> Book:
+    def find_book_by_name(self, query) -> list[Book]:
         return [b for b in self.get_all_books() if b.title == query]
     
     def update_book(self, updated_book: Book) -> bool:
