@@ -1,0 +1,50 @@
+[
+  {
+    "book_id": "81f1c532-13f3-44c6-9e94-e900c8ada181",
+    "checkout_date": "2026-02-04T01:03:21.844021",
+    "return_date": null,
+    "returned": false
+  },
+  {
+    "book_id": "81f1c532-13f3-44c6-9e94-e900c8ada181",
+    "checkout_date": null,
+    "return_date": "2026-02-04T01:04:22.089294",
+    "returned": true
+  },
+  {
+    "book_id": "7feeb4f5-e7d9-4288-aefa-25be72bde386",
+    "checkout_date": "2026-02-06T01:17:35.129200",
+    "return_date": null,
+    "returned": false
+  },
+  {
+    "book_id": "7feeb4f5-e7d9-4288-aefa-25be72bde386",
+    "checkout_date": null,
+    "return_date": "2026-02-06T09:26:35.239919",
+    "returned": true
+  },
+  {
+    "book_id": "7feeb4f5-e7d9-4288-aefa-25be72bde386",
+    "checkout_date": "2026-02-06T09:28:41.735062",
+    "return_date": null,
+    "returned": false
+  },
+  {
+    "book_id": "7feeb4f5-e7d9-4288-aefa-25be72bde386",
+    "checkout_date": null,
+    "return_date": "2026-02-06T09:28:46.370938",
+    "returned": true
+  },
+  {
+    "book_id": "af27a55b-e289-4cb2-9a2f-24d77b52f6d0",
+    "checkout_date": "2026-02-06T11:49:28.529111",
+    "return_date": null,
+    "returned": false
+  },
+  {
+    "book_id": "af27a55b-e289-4cb2-9a2f-24d77b52f6d0",
+    "checkout_date": null,
+    "return_date": "2026-02-06T11:49:42.202859",
+    "returned": true
+  }
+]

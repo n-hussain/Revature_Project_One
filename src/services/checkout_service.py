@@ -20,8 +20,9 @@ class CheckoutService:
         self.book_repo.update_book(book)
 
         event = CheckoutEvent(
-            book_id=book_id,
-            checked_out_at=datetime.now(),
+            book_id=book.book_id,
+            checkout_date=datetime.now(),
+            returned=False
         )
         self.history_repo.add_event(event)
 
@@ -32,4 +33,15 @@ class CheckoutService:
         book.check_in()
         self.book_repo.update_book(book)
 
-        self.history_repo.mark_returned(book_id)
+        event = CheckoutEvent(
+            book_id=book.book_id,
+            return_date=datetime.now(),
+            returned=True
+        )
+        self.history_repo.add_event(event)
+
+    def get_history_for_book(self, book_id: str) -> list[CheckoutEvent]:
+        return self.history_repo.get_history_for_book(book_id)
+    
+    def get_history_all(self) -> list[CheckoutEvent]:
+        return self.history_repo.get_history_all()

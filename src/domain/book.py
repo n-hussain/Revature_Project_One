@@ -1,12 +1,13 @@
 from dataclasses import dataclass, field
 from typing import Optional
 import uuid
+import datetime
 
 @dataclass
 class Book:
     title: str
     author: str
-    genre: Optional[int] = None
+    genre: Optional[str] = None
     publication_year: Optional[int] = None
     page_count: Optional[int] = None
     average_rating: Optional[float] = None
@@ -26,6 +27,7 @@ class Book:
         if not self.available:
             raise Exception('Book is already checked out.')
         self.available = False
+        self.last_checkout = datetime.datetime.now().isoformat()
 
     def check_in(self):
         if self.available:
@@ -56,3 +58,17 @@ class Book:
             "available": self.available,
             "publisher_email": self.publisher_email,
         }
+
+    def __str__(self):
+        return (
+            f"ID: {self.book_id}\n"
+            f"Title: {self.title}\n"
+            f"Author: {self.author}\n"
+            f"Genre: {self.genre}\n"
+            f"Publisher: {self.publisher}\n"
+            f"Pages: {self.page_count}\n"
+            f"Price: ${self.price_usd}\n"
+            f"Rating: {self.average_rating}\n"
+            f"In Print: {self.in_print}\n"
+            "-----------------------------"
+        )
